@@ -1,18 +1,28 @@
+// noinspection JSUnresolvedVariable
+
 /**
  * 首页的js
  */
 
 const $ = jQuery;
 
-
 // 入口函数
 $(function () {
-    loadEvent();
+    // 加载样式效果
+    loadStyleEffect();
+    // 加载环保数据
+    loadData();
 });
 
 
-// 加载事件
-function loadEvent() {
+// 加载环保数据
+function loadData() {
+    
+}
+
+
+// 加载样式效果
+function loadStyleEffect() {
 
     // 加载时候的动图
     $(window).load(function () {
