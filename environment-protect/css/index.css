@@ -308,6 +308,7 @@ body ul {
   position: relative;
   z-index: 5;
   overflow: hidden;
+  margin: 0 auto;
 }
 #news .news-list .news-item .news-img-wrapper img {
   border-radius: 50%;

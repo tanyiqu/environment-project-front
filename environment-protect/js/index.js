@@ -16,20 +16,26 @@ function loadEvent() {
 
     // 加载时候的动图
     $(window).load(function () {
+        // noinspection JSUnresolvedFunction
         $('#loading').fadeOut();
+        // noinspection JSUnresolvedFunction
         $('#loadingDiv').delay(1000).fadeOut("slow");
     });
 
     // 滚动到30的时候，导航栏折叠
+    // noinspection JSUnresolvedFunction
     $(window).on('ready , scroll', function () {
         if ($(window).scrollTop() > 30) {
+            // noinspection JSUnresolvedFunction
             $('#navbar').addClass('minified');
         } else {
+            // noinspection JSUnresolvedFunction
             $('#navbar').removeClass('minified');
         }
     });
 
-    // 翻页效果
+    // 轮播图翻页效果
+    // noinspection JSUnresolvedFunction
     $('#nav-menu').onePageNav({
         currentClass: 'active',
         scrollSpeed: 500,
@@ -37,21 +43,22 @@ function loadEvent() {
     });
 
     // 动画效果
+    // noinspection JSUnresolvedFunction
     let wow = new WOW(
         {
             boxClass: 'wow',
             animateClass: 'animated',
             offset: 250,
             mobile: true,
-            live: true,
-            callback: box => {
-            }
+            live: true
         }
     );
+    // noinspection JSUnresolvedFunction
     wow.init();
 
 
     // 新闻的 幻灯片效果
+    // noinspection JSUnresolvedFunction
     $("#news-list").owlCarousel({
         items: 1,
         itemsDesktop: [1199, 1],
@@ -62,6 +69,7 @@ function loadEvent() {
     });
 
     // 视差效果
+    // noinspection JSUnresolvedFunction
     $(window).stellar({
         responsive: true,
         positionProperty: 'position'
@@ -69,6 +77,7 @@ function loadEvent() {
 
 
     // 轮播图
+    // noinspection JSUnresolvedFunction
     $('#slider').sliderPro({
         width: '100%',
         height: 768,
