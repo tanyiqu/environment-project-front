@@ -10,13 +10,17 @@ const $ = jQuery;
 $(function () {
     // 加载样式效果
     loadStyleEffect();
+
+
     // 加载环保数据
-    loadData();
+    (async function () {
+        await loadData();
+    })();
 });
 
 
 // 加载环保数据
-function loadData() {
+async function loadData() {
     let option = {
         title: {
             text: '平顶山市空气质量 - AQI 趋势图'
@@ -73,7 +77,8 @@ function loadData() {
     window.onresize = function () {
         chartAQI.resize();
         chartPM25.resize();
-    }
+    };
+
 }
 
 
