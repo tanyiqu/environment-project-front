@@ -335,9 +335,11 @@ body ul {
 #data .data-list .data-item {
   padding: 0 35px 15px 35px;
 }
-#data .data-list .data-item div {
+#data .data-list .data-item .chart {
   height: 350px;
-  background: #7CD552;
+}
+#data .data-list .data-item p {
+  text-align: center;
 }
 /* =================↓ 环保小知识 ↓================= */
 #knowledge .knowledge-list .knowledge-item {

@@ -17,7 +17,48 @@ $(function () {
 
 // 加载环保数据
 function loadData() {
-    
+    let optionAQI = {
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [820, 932, 901, 934, 1290, 1330, 100],
+            type: 'line',
+            areaStyle: {}
+        }]
+    };
+
+    let optionPM25 = {
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            areaStyle: {}
+        }]
+    };
+
+    let chartAQI = echarts.init(document.getElementById('chart-aqi'));
+    let chartPM25 = echarts.init(document.getElementById('chart-pm25'));
+
+    chartAQI.setOption(optionAQI);
+    chartPM25.setOption(optionPM25);
+
+    window.onresize = function () {
+        chartAQI.resize();
+        chartPM25.resize();
+    }
 }
 
 

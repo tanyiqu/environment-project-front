@@ -54,6 +54,8 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
 
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.9.0-rc.1/echarts.min.js"></script>
+
     <!-- 自己的css -->
     <link rel="stylesheet" href="css/index.css">
 
@@ -315,15 +317,16 @@
     <div class="data-list wow fadeIn" data-wow-duration="2s">
         <!-- 单个数据 -->
         <div class="data-item col-md-6 col-sm-12 col-xs-12">
-            <div id="chart1">
-                <p>里面放图表1</p>
+            <div id="chart-aqi" class="chart">
             </div>
+            <p>平顶山市空气质量 - AQI 趋势图</p>
         </div>
 
         <div class="data-item col-md-6 col-sm-12 col-xs-12">
-            <div id="chart2">
-                <p>里面放图表2</p>
-            </divid>
+            <div id="chart-pm25" class="chart">
+
+            </div>
+            <p>平顶山市空气质量 - PM2.5 趋势图</p>
         </div>
     </div>
 </section>
