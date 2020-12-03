@@ -121,7 +121,7 @@ body ul {
   background-size: cover;
 }
 /* =================↓ 导航栏菜单 ↓================= */
-.navbar {
+#navbar {
   background-color: transparent;
   border: 0 none;
   border-radius: 0;
@@ -135,14 +135,17 @@ body ul {
   -o-transition: all 0.35s;
   transition: all 0.35s;
 }
-.navbar .navbar-brand {
+#navbar .navbar-brand {
   padding: 30px 0;
 }
-.navbar .navbar-nav {
+#navbar .logo {
+  height: 30px;
+}
+#navbar .navbar-nav {
   float: right;
   padding: 30px 0;
 }
-.navbar .navbar-nav li a {
+#navbar .navbar-nav li a {
   color: #333333;
   font-size: 13px;
   font-weight: 700;
@@ -155,18 +158,18 @@ body ul {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
-.navbar .navbar-nav li a:hover {
+#navbar .navbar-nav li a:hover {
   background-color: transparent;
   color: #7CD552;
 }
-.navbar .navbar-nav li a:focus {
+#navbar .navbar-nav li a:focus {
   background-color: transparent;
 }
-.navbar .navbar-nav li.active a {
+#navbar .navbar-nav li.active a {
   background-color: transparent;
   color: #7CD552;
 }
-.navbar.minified {
+#navbar.minified {
   background-color: #ffffff;
   padding: 0;
   position: fixed;
@@ -375,9 +378,12 @@ footer {
 footer .footer-content {
   text-align: center;
 }
-footer .footer-logo {
+footer .footer-content .footer-logo {
   text-align: center;
   margin-bottom: 20px;
+}
+footer .footer-content .footer-logo img {
+  height: 40px;
 }
 footer p {
   text-align: center;
