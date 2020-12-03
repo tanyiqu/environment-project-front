@@ -17,43 +17,58 @@ $(function () {
 
 // 加载环保数据
 function loadData() {
-    let optionAQI = {
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    let option = {
+        title: {
+            text: '平顶山市空气质量 - AQI 趋势图'
         },
-        yAxis: {
-            type: 'value'
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
         },
-        series: [{
-            data: [820, 932, 901, 934, 1290, 1330, 100],
-            type: 'line',
-            areaStyle: {}
-        }]
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: ['16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: 'PM2.5',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {},
+                data: [150, 232, 201, 154, 190, 330, 410]
+            }
+        ]
     };
 
-    let optionPM25 = {
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: 'line',
-            areaStyle: {}
-        }]
-    };
 
     let chartAQI = echarts.init(document.getElementById('chart-aqi'));
     let chartPM25 = echarts.init(document.getElementById('chart-pm25'));
-
-    chartAQI.setOption(optionAQI);
-    chartPM25.setOption(optionPM25);
+    chartAQI.setOption(option);
+    chartPM25.setOption(option);
 
     window.onresize = function () {
         chartAQI.resize();
