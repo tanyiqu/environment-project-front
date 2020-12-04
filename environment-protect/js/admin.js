@@ -9,7 +9,14 @@ let slideNav = {
             console.log(key, keyPath);
         },
         tap(e) {
-            console.log(e.index);
+            let index = e.index;
+            console.log(index);
+            let id = `#section${index}`;
+            console.log(id);
+            for (let i = 1; i <= 4; i++) {
+                $(`#section${i}`).hide();
+            }
+            $(id).show();
         }
     }
 };
