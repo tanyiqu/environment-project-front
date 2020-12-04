@@ -10,7 +10,9 @@ const API = {
 
     // 视频api
     VIDEO_API: {
-        ALL: 'http://120.26.163.105/interface/selectAllVideo'
+        ALL: 'http://120.26.163.105/interface/selectAllVideo',
+
+        DELETE: 'http://120.26.163.105/interface/deleteVideo'
     },
 
 };

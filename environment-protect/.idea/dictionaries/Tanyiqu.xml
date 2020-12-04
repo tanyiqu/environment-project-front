@@ -2,7 +2,9 @@
   <dictionary name="Tanyiqu">
     <words>
       <w>navbar</w>
+      <w>sectioni</w>
       <w>tanyiqu</w>
+      <w>toastr</w>
     </words>
   </dictionary>
 </component>

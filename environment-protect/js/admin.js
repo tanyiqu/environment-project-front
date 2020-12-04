@@ -26,7 +26,7 @@ new CtorSlideNav().$mount('#slide-nav');
 
 
 // 视频
-// noinspection JSUnusedGlobalSymbols
+// noinspection JSUnusedGlobalSymbols,ES6ShorthandObjectProperty
 let videoTable = {
     data() {
         return {
@@ -39,23 +39,42 @@ let videoTable = {
     },
     created() {
         // 加载视频数据
-        let that = this;
-        (async function () {
-            let url = API.VIDEO_API.ALL;
-            let data = await get(url);
-            that.videoData = data.data;
-        })();
+        this.refresh();
     },
     methods: {
-        deleteVideo(id) {
-            console.log('删除' + id);
+        async deleteVideo(id) {
+            let that = this;
+            let flag = confirm(`确定删除 ${id}`);
+            if (flag) {
+                let url = API.VIDEO_API.DELETE;
+                get(url, {
+                    videoId: id
+                }).then(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedVariable
+                    toastr.info('删除成功');
+                    that.refresh();
+                }).catch(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedVariable
+                    toastr.error('删除失败：服务器异常');
+                });
+            } else {
+                // noinspection JSUnresolvedVariable
+                toastr.info('操作取消');
+            }
         },
         handleClick(a) {
             console.log(a);
         },
-        page(curr) {
-            console.log(curr)
-        }
+        refresh() {
+            let that = this;
+            (async function () {
+                let url = API.VIDEO_API.ALL;
+                let data = await get(url);
+                that.videoData = data.data;
+            })();
+        },
     }
 };
 // noinspection JSUnresolvedVariable
