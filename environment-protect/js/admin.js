@@ -38,14 +38,17 @@ let videoTable = {
         }
     },
     created() {
+        // 加载视频数据
+        let that = this;
         (async function () {
-            // let data = await get('http://120.26.163.105/interface/selectAllVideo');
-            // console.log(data);
+            let url = API.VIDEO_API.ALL;
+            let data = await get(url);
+            that.videoData = data.data;
         })();
     },
     methods: {
         deleteVideo(id) {
-            console.log(id);
+            console.log('删除' + id);
         },
         handleClick(a) {
             console.log(a);
