@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTag -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>环境保护宣传网站 管理员 - 【网站设计比赛】</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- element-ui -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+<!-- 顶部 -->
+<header></header>
+
+
+<!-- 侧边导航 -->
+<div class="slide">
+    <div id="slide-nav">
+        <el-row class="tac">
+            <el-col :span="24">
+                <el-menu
+                        default-active="1"
+                        class="el-menu-vertical-demo"
+                        @open="handleOpen"
+                        @close="handleClose"
+                        background-color="#545c64"
+                        text-color="#fff"
+                        active-text-color="#ffd04b">
+                    <el-menu-item index="1" @click="tap">
+                        <i class="el-icon-s-data"></i>
+                        <span slot="title">动态管理</span>
+                    </el-menu-item>
+                    <el-menu-item index="2" @click="tap">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">新闻管理</span>
+                    </el-menu-item>
+                    <el-menu-item index="3" @click="tap">
+                        <i class="el-icon-video-camera-solid"></i>
+                        <span slot="title">视频管理</span>
+                    </el-menu-item>
+                    <el-menu-item index="4" @click="tap">
+                        <i class="el-icon-s-opportunity"></i>
+                        <span slot="title">知识管理</span>
+                    </el-menu-item>
+                </el-menu>
+            </el-col>
+        </el-row>
+    </div>
+</div>
+
+
+<!-- 主区域 -->
+<main>
+
+</main>
+
+
+<!-- 底部 -->
+<footer>
+    <div>
+        <span><a href="https://gitee.com/web-design-hncj/web-design-front" target="_blank">COPYRIGHT 2020 - 网站设计比赛作品</a></span>
+        <span><a href="https://github.com/tanyiqu" target="_blank">Tanyiqu</a></span>
+        <span><a href="https://gitee.com/system-default" target="_blank">Kaiser</a></span>
+    </div>
+</footer>
+
+
+<script src="js/admin.js"></script>
+</body>
+
+
+</html>
