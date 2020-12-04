@@ -50,9 +50,18 @@ main {
   height: calc(100% - @headerHeight - @footerHeight);
   top: @headerHeight;
   left: @slideWeight;
-  background: pink;
 
+  section {
+    padding: 20px;
 
+    .table {
+      max-height: calc(100% - @headerHeight - @footerHeight - 60px);
+    }
+
+    .pagination {
+      margin-top: 20px;
+    }
+  }
 
 }
 

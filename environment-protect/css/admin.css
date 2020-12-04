@@ -38,7 +38,15 @@ main {
   height: calc(100% - 55px - 35px);
   top: 55px;
   left: 280px;
-  background: pink;
+}
+main section {
+  padding: 20px;
+}
+main section .table {
+  max-height: calc(100% - 55px - 35px - 60px);
+}
+main section .pagination {
+  margin-top: 20px;
 }
 /* =================↓ 底部 ↓================= */
 footer {

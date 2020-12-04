@@ -24,11 +24,11 @@ const promiseAjax = (url, param, method, timeout) => {
 };
 
 
-const post = (url, param, timeout = 5000) => {
+const post = (url, param = {}, timeout = 5000) => {
     return promiseAjax(url, param, 'POST', timeout);
 };
 
 
-const get = (url, param, timeout = 5000) => {
+const get = (url, param = {}, timeout = 5000) => {
     return promiseAjax(url, param, 'GET', timeout);
 };
