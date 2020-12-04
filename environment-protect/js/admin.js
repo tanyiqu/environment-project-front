@@ -51,17 +51,29 @@ let videoTable = {
                     videoId: id
                 }).then(e => {
                     console.log(e);
-                    // noinspection JSUnresolvedVariable
-                    toastr.info('删除成功');
+                    // noinspection JSUnresolvedFunction
+                    that.$message({
+                        type: 'success',
+                        showClose: true,
+                        message: '删除成功'
+                    });
+
                     that.refresh();
                 }).catch(e => {
                     console.log(e);
-                    // noinspection JSUnresolvedVariable
-                    toastr.error('删除失败：服务器异常');
+                    // noinspection JSUnresolvedFunction
+                    that.$message({
+                        type: 'error',
+                        showClose: true,
+                        message: '删除失败：服务器异常'
+                    });
                 });
             } else {
-                // noinspection JSUnresolvedVariable
-                toastr.info('操作取消');
+                // noinspection JSUnresolvedFunction
+                that.$message({
+                    showClose: true,
+                    message: '操作取消'
+                });
             }
         },
         handleClick(a) {
@@ -75,6 +87,26 @@ let videoTable = {
                 that.videoData = data.data;
             })();
         },
+        open() {
+            // noinspection JSUnresolvedFunction
+            this.$prompt('格式为： 名称;链接', '请输入名称和链接', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消'
+            }).then(({value}) => {
+                // let that
+                //
+                // // this.$message({
+                // //     type: 'success',
+                // //     message: '你的输入: ' + value
+                // // });
+            }).catch(() => {
+                // noinspection JSUnresolvedFunction
+                this.$message({
+                    type: 'info',
+                    message: '取消输入'
+                });
+            });
+        }
     }
 };
 // noinspection JSUnresolvedVariable

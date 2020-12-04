@@ -48,8 +48,12 @@ main section .title {
 main section .table {
   max-height: calc(100% - 55px - 35px - 60px);
 }
+main section .btn-add {
+  float: right;
+  margin-top: 15px;
+}
 main section .pagination {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 /* =================↓ 底部 ↓================= */
 footer {

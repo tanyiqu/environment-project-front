@@ -6,7 +6,10 @@
     <title>环境保护宣传网站 管理员 - 【网站设计比赛】</title>
     <link rel="shortcut icon" href="images/favicon.png">
 
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+<!--    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>-->
+    <!-- toastr -->
+<!--    <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">-->
+<!--    <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>-->
 
 
     <!-- vue -->
@@ -19,9 +22,6 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
 
-    <!-- toastr -->
-    <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <link rel="stylesheet" href="css/admin.css">
 
@@ -129,6 +129,12 @@
                     </el-table-column>
 
                 </el-table>
+
+                <template>
+                    <el-button class="btn-add" type="primary" @click="open">
+                        添加视频
+                    </el-button>
+                </template>
 
                 <el-pagination class="pagination"
                                background
