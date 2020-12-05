@@ -9,10 +9,7 @@ let slideNav = {
             console.log(key, keyPath);
         },
         tap(e) {
-            let index = e.index;
-            console.log(index);
-            let id = `#section${index}`;
-            console.log(id);
+            let id = `#section${e.index}`;
             for (let i = 1; i <= 4; i++) {
                 $(`#section${i}`).hide();
             }
@@ -25,7 +22,80 @@ let CtorSlideNav = Vue.extend(slideNav);
 new CtorSlideNav().$mount('#slide-nav');
 
 
-// 视频
+// 新闻管理
+let newsTable = {
+    data() {
+        return {
+            newsData: [{
+                "newsName": "id",
+                "newsFrom": "正在获取...",
+                "newsUrl": "正在获取...",
+                "newsFace": "正在获取..."
+            }],
+            inputName: '',
+            inputUrl: ''
+        }
+    },
+    created() {
+        this.refresh();
+    },
+    methods: {
+
+        handleClick(a) {
+            console.log(a);
+        },
+
+        refresh() {
+            let that = this;
+            (async function () {
+                let url = API.NEWS_API.ALL;
+                let data = await get(url);
+                that.newsData = data.data;
+            })();
+        },
+        deleteNews(id) {
+            let that = this;
+            let flag = confirm(`确定删除 ${id}`);
+            if (flag) {
+                let url = API.NEWS_API.DELETE;
+                post(url, {
+                    newsId: id
+                }).then(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedFunction
+                    that.$message({
+                        type: 'success',
+                        showClose: true,
+                        message: '删除成功'
+                    });
+
+                    that.refresh();
+                }).catch(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedFunction
+                    that.$message({
+                        type: 'error',
+                        showClose: true,
+                        message: '删除失败：服务器异常'
+                    });
+                });
+            } else {
+                // noinspection JSUnresolvedFunction
+                that.$message({
+                    showClose: true,
+                    message: '操作取消'
+                });
+            }
+        },
+        addNews() {
+        }
+    }
+};
+let CtorNewsTable = Vue.extend(newsTable);
+new CtorNewsTable().$mount('#news-table');
+
+
+// 视频管理
 // noinspection JSUnusedGlobalSymbols,ES6ShorthandObjectProperty
 let videoTable = {
     data() {
