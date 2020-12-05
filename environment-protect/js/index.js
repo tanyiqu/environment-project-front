@@ -11,6 +11,10 @@ $(function () {
     // 加载样式效果
     loadStyleEffect();
 
+    // 加载环保视频
+    (async function () {
+        await loadVideo();
+    })();
 
     // 加载环保数据
     (async function () {
@@ -22,10 +26,26 @@ $(function () {
         await loadKnowledge();
     })();
 
-
+    // 加载事件
     loadEvents();
-
 });
+
+
+// 加载环保视频
+async function loadVideo() {
+    let url = API.VIDEO_API.ALL;
+    let data = await get(url, {
+        type: 'r',
+        length: 2
+    });
+    data = data.data;
+    let frames = $('.video-frame');
+    let names = $('.video-name');
+    for (let i = 0; i < 2; i++) {
+        $(frames[i]).attr('src', data[i]['videoUrl']);
+        $(names[i]).html(data[i]['videoName']);
+    }
+}
 
 
 // 加载环保数据
@@ -173,6 +193,14 @@ async function loadKnowledge() {
 
 // 加载事件
 function loadEvents() {
+    // 刷新视频
+    $('#refresh-video').click(() => {
+        (async function () {
+            await loadVideo();
+        })();
+    });
+
+
     // 刷新小知识
     $('#refresh-knowledge').click(() => {
         (async function () {
