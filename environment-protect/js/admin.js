@@ -10,7 +10,7 @@ let slideNav = {
         },
         tap(e) {
             let id = `#section${e.index}`;
-            for (let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 3; i++) {
                 $(`#section${i}`).hide();
             }
             $(id).show();

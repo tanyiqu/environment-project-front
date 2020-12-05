@@ -50,18 +50,14 @@
                         text-color="#fff"
                         active-text-color="#ffd04b">
                     <el-menu-item index="1" @click="tap">
-                        <i class="el-icon-s-data"></i>
-                        <span slot="title">动态管理</span>
-                    </el-menu-item>
-                    <el-menu-item index="2" @click="tap">
                         <i class="el-icon-menu"></i>
                         <span slot="title">新闻管理</span>
                     </el-menu-item>
-                    <el-menu-item index="3" @click="tap">
+                    <el-menu-item index="2" @click="tap">
                         <i class="el-icon-video-camera-solid"></i>
                         <span slot="title">视频管理</span>
                     </el-menu-item>
-                    <el-menu-item index="4" @click="tap">
+                    <el-menu-item index="3" @click="tap">
                         <i class="el-icon-s-opportunity"></i>
                         <span slot="title">知识管理</span>
                     </el-menu-item>
@@ -74,14 +70,9 @@
 
 <!-- 主区域 -->
 <main>
-    <!-- 动态管理 -->
-    <section id="section1" style="display:none;">
-        <h2 class="title">动态管理</h2>
-    </section>
-
 
     <!-- 新闻管理 -->
-    <section id="section2" style="display:none;">
+    <section id="section1" style="display:block;">
         <h2 class="title">新闻管理</h2>
         <div id="news-table" class="table">
             <el-table
@@ -157,7 +148,7 @@
 
 
     <!-- 视频管理 -->
-    <section id="section3" style="display: block">
+    <section id="section2" style="display: none">
         <h2 class="title">视频管理</h2>
         <div id="video-table" class="table">
             <el-table
@@ -224,7 +215,7 @@
 
 
     <!-- 知识管理 -->
-    <section id="section4" style="display:none;">
+    <section id="section3" style="display:none;">
         <h2 class="title">知识管理</h2>
         <div id="festival-table" class="table">
             <el-table
