@@ -48,7 +48,13 @@ main section .title {
 main section .table {
   max-height: calc(100% - 55px - 35px - 60px);
 }
-main section .btn-add {
+main section .add-div .input-div {
+  display: flex;
+}
+main section .add-div .input-div .el-input {
+  margin: 10px 0;
+}
+main section .add-div .btn-add {
   float: right;
   margin-top: 15px;
 }

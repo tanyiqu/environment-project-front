@@ -34,7 +34,9 @@ let videoTable = {
                 "videoId": "id",
                 "videoName": "正在获取...",
                 "videoUrl": "正在获取..."
-            }]
+            }],
+            inputName: '',
+            inputUrl: ''
         }
     },
     created() {
@@ -87,25 +89,47 @@ let videoTable = {
                 that.videoData = data.data;
             })();
         },
-        open() {
-            // noinspection JSUnresolvedFunction
-            this.$prompt('格式为： 名称;链接', '请输入名称和链接', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消'
-            }).then(({value}) => {
-                // let that
-                //
-                // // this.$message({
-                // //     type: 'success',
-                // //     message: '你的输入: ' + value
-                // // });
-            }).catch(() => {
+        addVideo() {
+            let that = this;
+            let name = that.inputName;
+            let url = that.inputUrl;
+            if (name.trim() === '' || url.trim() === '') {
                 // noinspection JSUnresolvedFunction
                 this.$message({
-                    type: 'info',
-                    message: '取消输入'
+                    showClose: true,
+                    message: `请输入`
                 });
-            });
+            } else {
+                post(API.VIDEO_API.ADD, {
+                    videoName: name,
+                    videoUrl: url
+                }).then(e => {
+                    if (e.status === 200) {
+                        // noinspection JSUnresolvedFunction
+                        that.$message({
+                            type: 'success',
+                            showClose: true,
+                            message: '添加成功'
+                        });
+                        that.refresh();
+                    } else {
+                        // noinspection JSUnresolvedFunction
+                        that.$message({
+                            type: 'error',
+                            showClose: true,
+                            message: '添加失败：服务器异常'
+                        });
+                    }
+                }).catch(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedFunction
+                    that.$message({
+                        type: 'error',
+                        showClose: true,
+                        message: '添加失败：服务器异常'
+                    });
+                });
+            }
         }
     }
 };

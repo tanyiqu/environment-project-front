@@ -6,10 +6,10 @@
     <title>环境保护宣传网站 管理员 - 【网站设计比赛】</title>
     <link rel="shortcut icon" href="images/favicon.png">
 
-<!--    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>-->
+    <!--    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.1/jquery.min.js"></script>-->
     <!-- toastr -->
-<!--    <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">-->
-<!--    <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>-->
+    <!--    <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">-->
+    <!--    <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>-->
 
 
     <!-- vue -->
@@ -20,7 +20,6 @@
     <!-- element-ui -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-
 
 
     <link rel="stylesheet" href="css/admin.css">
@@ -89,63 +88,67 @@
     <section id="section3" style="display: block">
         <h2 class="title">视频管理</h2>
         <div id="video-table" class="table">
-            <template>
-                <el-table
-                        :data="videoData"
-                        max-height="800"
-                        border
-                        style="width: 100%">
-                    <el-table-column
-                            label="编号"
-                            width="100">
-                        <template slot-scope="scope">
-                            <i class="el-icon-video-play"></i>
-                            <span style="margin-left: 10px">{{ scope.row.videoId }}</span>
-                        </template>
-                    </el-table-column>
+            <el-table
+                    :data="videoData"
+                    max-height="800"
+                    border
+                    style="width: 100%">
+                <el-table-column
+                        label="编号"
+                        width="100">
+                    <template slot-scope="scope">
+                        <i class="el-icon-video-play"></i>
+                        <span style="margin-left: 10px">{{ scope.row.videoId }}</span>
+                    </template>
+                </el-table-column>
 
-                    <el-table-column
-                            label="名称"
-                            min-width="380">
-                        <template slot-scope="scope">
-                            <span>{{ scope.row.videoName }}</span>
-                        </template>
-                    </el-table-column>
+                <el-table-column
+                        label="名称"
+                        min-width="380">
+                    <template slot-scope="scope">
+                        <span>{{ scope.row.videoName }}</span>
+                    </template>
+                </el-table-column>
 
-                    <el-table-column
-                            label="链接"
-                            min-width="450">
-                        <template slot-scope="scope">
-                            <span>{{ scope.row.videoUrl }}</span>
-                        </template>
-                    </el-table-column>
+                <el-table-column
+                        label="链接"
+                        min-width="450">
+                    <template slot-scope="scope">
+                        <span>{{ scope.row.videoUrl }}</span>
+                    </template>
+                </el-table-column>
 
-                    <el-table-column label="操作">
-                        <template slot-scope="scope">
-                            <el-button size="mini" type="danger" @click="deleteVideo(scope.row.videoId)">
-                                删除
-                            </el-button>
-                        </template>
-                    </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button size="mini" type="danger" @click="deleteVideo(scope.row.videoId)">
+                            删除
+                        </el-button>
+                    </template>
+                </el-table-column>
 
-                </el-table>
+            </el-table>
 
-                <template>
-                    <el-button class="btn-add" type="primary" @click="open">
-                        添加视频
-                    </el-button>
-                </template>
+            <!-- 添加 -->
+            <div class="add-div">
+                <div class="input-div">
+                    <el-input class="el-input" v-model="inputName" placeholder="请输入名称"></el-input>
+                    <el-input class="el-input" v-model="inputUrl" placeholder="请输入链接"></el-input>
+                </div>
 
-                <el-pagination class="pagination"
-                               background
-                               layout="prev, pager, next"
-                               :total="50">
-                </el-pagination>
+                <el-button class="btn-add" type="primary" @click="addVideo">
+                    添加视频
+                </el-button>
 
-            </template>
+            </div>
+
+            <!-- 分页 -->
+            <el-pagination class="pagination"
+                           background
+                           layout="prev, pager, next"
+                           :total="50">
+            </el-pagination>
         </div>
     </section>
-
 
     <!-- 知识管理 -->
     <section id="section4" style="display:none;">

@@ -12,6 +12,8 @@ const API = {
     VIDEO_API: {
         ALL: 'http://120.26.163.105/interface/selectAllVideo',
 
+        ADD: 'http://120.26.163.105/interface/insertVideo',
+
         DELETE: 'http://120.26.163.105/interface/deleteVideo'
     },
 
