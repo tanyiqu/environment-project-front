@@ -330,12 +330,27 @@ body ul {
   margin-bottom: 0;
 }
 /* =================↓ 环保视频 ↓================= */
-#video .video-div {
-  height: 359px;
+#video .video-list {
+  padding: 0 40px;
 }
-#video .video-div iframe {
+#video .video-list .video-item {
+  padding: 0;
+}
+#video .video-list .video-item p {
+  text-align: center;
+  font-size: 18px;
+}
+#video .video-list .video-item iframe {
   width: 100%;
-  height: 100%;
+  height: 363px;
+}
+#video .video-list .video-item.left .video {
+  margin-left: 45px;
+  margin-right: 45px;
+}
+#video .video-list .video-item.right .video {
+  margin-left: 45px;
+  margin-right: 45px;
 }
 /* =================↓ 环保数据 ↓================= */
 #data .data-list .data-item {

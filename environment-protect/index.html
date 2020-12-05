@@ -284,27 +284,27 @@
         <h1><span class="primary-color">环保视频</span></h1>
         <div class="short-line"></div>
         <p class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">
-            一行小字
+            <a id="refresh-video">点击刷新</a>
         </p>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <!-- 左侧 -->
-            <div class="video-div col-md-7 col-sm-7 col-xs-12  wow bounceInLeft">
-                <iframe id="videoFrame"
+    <div class="video-list row">
+        <div class="video-item left col-md-6 col-sm-6 col-xs-12 wow bounceInLeft">
+            <div class="video">
+                <iframe class="video-frame" id="videoFrameLeft"
                         src="//player.bilibili.com/player.html?aid=97352674&bvid=BV1j7411R7jc&cid=166156570&page=1"></iframe>
+                <p class="video-name">视频名称</p>
             </div>
-
-            <!-- 右侧 -->
-            <div class="col-md-5 col-sm-5 col-xs-12 wow bounceInRight">
-                <h3>视频介绍</h3>
-                <p>这是一段介绍。</p>
-                <p>这是一段介绍。</p>
-                <p>这是一段介绍。</p>
+        </div>
+        <div class="video-item right col-md-6 col-sm-6 col-xs-12 wow bounceInRight">
+            <div class="video">
+                <iframe class="video-frame" id="videoFrameRight"
+                        src="//player.bilibili.com/player.html?aid=97352674&bvid=BV1j7411R7jc&cid=166156570&page=1"></iframe>
+                <p class="video-name">视频名称</p>
             </div>
         </div>
     </div>
+
 </section>
 
 
