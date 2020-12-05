@@ -192,6 +192,8 @@ let videoTable = {
                             message: '添加成功'
                         });
                         that.refresh();
+                        that.inputName = '';
+                        that.inputUrl = '';
                     } else {
                         // noinspection JSUnresolvedFunction
                         that.$message({
