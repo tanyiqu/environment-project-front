@@ -3,7 +3,6 @@
  */
 const API = {
 
-
     // 空气质量
     Air_Quality: 'http://1.192.88.18:18111/release/getMaxTwoDayDate',
 
@@ -24,5 +23,14 @@ const API = {
 
         DELETE: 'http://120.26.163.105/interface/deleteVideo'
     },
+
+    // 节日api
+    FESTIVAL_API: {
+        ALL: 'http://120.26.163.105/interface/selectHolidays',
+
+        ADD: 'http://120.26.163.105/interface/insertHoliday',
+
+        DELETE: 'http://120.26.163.105/interface/deleteHoliday'
+    }
 
 };
