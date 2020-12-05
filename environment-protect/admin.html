@@ -227,7 +227,7 @@
         <div id="festival-table" class="table">
             <el-table
                     :data="festivalData"
-                    max-height="680"
+                    max-height="760"
                     border
                     style="width: 100%">
                 <el-table-column
@@ -271,19 +271,6 @@
                 </el-table-column>
 
             </el-table>
-
-            <!-- 添加 -->
-            <div class="add-div">
-                <div class="input-div">
-                    <el-input class="el-input" v-model="inputName" placeholder="请输入名称"></el-input>
-                    <el-input class="el-input" v-model="inputUrl" placeholder="请输入链接"></el-input>
-                </div>
-
-                <el-button class="btn-add" type="primary" @click="addFestival">
-                    添加视频
-                </el-button>
-
-            </div>
 
             <!-- 分页 -->
             <el-pagination class="pagination"

@@ -251,9 +251,6 @@ let festivalTable = {
             })();
         },
 
-        addFestival() {
-        },
-
         deleteFestival(id) {
             let _this = this;
             let flag = confirm(`确定删除 ${id}`);
