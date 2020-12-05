@@ -204,6 +204,9 @@ body ul {
 .section-wrapper .section-header p {
   font-family: 'Raleway', sans-serif;
 }
+.section-wrapper .section-header p a {
+  cursor: pointer;
+}
 .section-wrapper .section-header .short-line {
   width: 100px;
   height: 1px;

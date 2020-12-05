@@ -16,6 +16,15 @@ $(function () {
     (async function () {
         await loadData();
     })();
+
+    // 加载小知识
+    (async function () {
+        await loadKnowledge();
+    })();
+
+
+    loadEvents();
+
 });
 
 
@@ -140,6 +149,36 @@ async function loadData() {
         chartPM25.resize();
     };
 
+}
+
+
+// 加载小知识
+async function loadKnowledge() {
+    let url = API.FESTIVAL_API.ALL;
+    let data = await get(url, {
+        type: 'r',
+        length: 6
+    });
+    data = data.data;
+
+    let titles = $('.knowledge-item h3');
+    let contents = $('.knowledge-item p');
+
+    for (let i = 0; i < 6; i++) {
+        $(titles[i]).html(data[i]['holidayName']);
+        $(contents[i]).html(`${data[i]['holidayDate']}<br>${data[i]['holidayReason']}`);
+    }
+}
+
+
+// 加载事件
+function loadEvents() {
+    // 刷新小知识
+    $('#refresh-knowledge').click(() => {
+        (async function () {
+            await loadKnowledge();
+        })();
+    });
 }
 
 
