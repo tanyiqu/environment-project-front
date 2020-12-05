@@ -23,11 +23,12 @@ new CtorSlideNav().$mount('#slide-nav');
 
 
 // 新闻管理
+// noinspection JSUnusedGlobalSymbols,ES6ShorthandObjectProperty
 let newsTable = {
     data() {
         return {
             newsData: [{
-                "newsName": "id",
+                "newsName": "正在获取...",
                 "newsFrom": "正在获取...",
                 "newsUrl": "正在获取...",
                 "newsFace": "正在获取..."
@@ -40,7 +41,6 @@ let newsTable = {
         this.refresh();
     },
     methods: {
-
         handleClick(a) {
             console.log(a);
         },
@@ -50,9 +50,19 @@ let newsTable = {
             (async function () {
                 let url = API.NEWS_API.ALL;
                 let data = await get(url);
+                if (data.status !== 200) {
+                    that.newsData = [{
+                        "newsName": "暂无数据",
+                        "newsFrom": "暂无数据",
+                        "newsUrl": "暂无数据",
+                        "newsFace": "暂无数据"
+                    }];
+                    return;
+                }
                 that.newsData = data.data;
             })();
         },
+
         deleteNews(id) {
             let that = this;
             let flag = confirm(`确定删除 ${id}`);
@@ -68,7 +78,6 @@ let newsTable = {
                         showClose: true,
                         message: '删除成功'
                     });
-
                     that.refresh();
                 }).catch(e => {
                     console.log(e);
@@ -91,6 +100,7 @@ let newsTable = {
         }
     }
 };
+// noinspection JSUnresolvedVariable
 let CtorNewsTable = Vue.extend(newsTable);
 new CtorNewsTable().$mount('#news-table');
 
