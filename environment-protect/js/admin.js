@@ -218,3 +218,78 @@ let CtorVideoTable = Vue.extend(videoTable);
 new CtorVideoTable().$mount('#video-table');
 
 
+// 知识管理
+// noinspection JSUnusedGlobalSymbols,ES6ShorthandObjectProperty
+let festivalTable = {
+    data() {
+        return {
+            festivalData: [{
+                "holidayId": "id",
+                "holidayName": "正在获取...",
+                "holidayDate": "正在获取...",
+                "holidayReason": "正在获取...",
+            }],
+            inputName: '',
+            inputUrl: ''
+        }
+    },
+    created() {
+        // 加载视频数据
+        this.refresh();
+    },
+    methods: {
+        handleClick(a) {
+            console.log(a);
+        },
+
+        refresh() {
+            let that = this;
+            (async function () {
+                let url = API.FESTIVAL_API.ALL;
+                let data = await get(url);
+                that.festivalData = data.data;
+            })();
+        },
+
+        addFestival() {
+        },
+
+        deleteFestival(id) {
+            let _this = this;
+            let flag = confirm(`确定删除 ${id}`);
+            if (flag) {
+                let url = API.FESTIVAL_API.DELETE;
+                post(url, {
+                    holidayId: id
+                }).then(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedFunction
+                    _this.$message({
+                        type: 'success',
+                        showClose: true,
+                        message: '删除成功'
+                    });
+
+                    _this.refresh();
+                }).catch(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedFunction
+                    _this.$message({
+                        type: 'error',
+                        showClose: true,
+                        message: '删除失败：服务器异常'
+                    });
+                });
+            } else {
+                // noinspection JSUnresolvedFunction
+                _this.$message({
+                    showClose: true,
+                    message: '操作取消'
+                });
+            }
+        }
+    }
+};
+// noinspection JSUnresolvedVariable
+let CtorFestivalTable = Vue.extend(festivalTable);
+new CtorFestivalTable().$mount('#festival-table');
