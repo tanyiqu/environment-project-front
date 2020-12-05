@@ -21,9 +21,23 @@ $(function () {
 
 // 加载环保数据
 async function loadData() {
-    let option = {
+    // 获取空气质量数据
+    let data = await get(API.Air_Quality);
+    data = data.data.slice(-24);
+
+    let xAxis_data = [];
+    let pm25_data = [];
+    let pm10_data = [];
+
+    data.forEach(item => {
+        xAxis_data.push(formatDate(item['datatime']));
+        pm25_data.push(item['pm25']);
+        pm10_data.push(item['pm10']);
+    });
+
+    let option_pm25 = {
         title: {
-            text: '平顶山市空气质量 - AQI 趋势图'
+            text: '平顶山市空气质量 - PM2.5 趋势图'
         },
         tooltip: {
             trigger: 'axis',
@@ -49,7 +63,7 @@ async function loadData() {
             {
                 type: 'category',
                 boundaryGap: false,
-                data: ['16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+                data: xAxis_data
             }
         ],
         yAxis: [
@@ -63,16 +77,63 @@ async function loadData() {
                 type: 'line',
                 stack: '总量',
                 areaStyle: {},
-                data: [150, 232, 201, 154, 190, 330, 410]
+                data: pm25_data
             }
         ]
     };
 
+    let option_pm10 = {
+        title: {
+            text: '平顶山市空气质量 - PM10 趋势图'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: xAxis_data
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: 'PM2.5',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {},
+                data: pm10_data
+            }
+        ]
+    };
 
     let chartAQI = echarts.init(document.getElementById('chart-aqi'));
     let chartPM25 = echarts.init(document.getElementById('chart-pm25'));
-    chartAQI.setOption(option);
-    chartPM25.setOption(option);
+    chartAQI.setOption(option_pm25);
+    chartPM25.setOption(option_pm10);
+
 
     window.onresize = function () {
         chartAQI.resize();

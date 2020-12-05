@@ -32,3 +32,11 @@ const post = (url, param = {}, timeout = 5000) => {
 const get = (url, param = {}, timeout = 5000) => {
     return promiseAjax(url, param, 'GET', timeout);
 };
+
+// 将时间戳 转 hh:mm
+function formatDate(date) {
+    date = new Date(date);
+    let hh = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    let mm = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
+    return (hh + mm);
+}
