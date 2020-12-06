@@ -182,7 +182,7 @@ body ul {
 }
 .section-wrapper .section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 35px;
 }
 .section-wrapper .section-header h1 {
   font-family: 'Montserrat', sans-serif;
@@ -310,24 +310,31 @@ body ul {
 }
 /* =================↓ 环保新闻 ↓================= */
 #news .news-list {
+  padding: 0 4%;
+}
+#news .news-list .news-item {
+  margin: 20px 0;
   text-align: center;
-  position: relative;
-  z-index: 5;
-  overflow: hidden;
-  margin: 0 auto;
 }
-#news .news-list .news-item .news-img-wrapper img {
-  border-radius: 50%;
-  margin-bottom: 20px;
+#news .news-list .news-item .main {
+  height: 290px;
+  margin: 0 10px;
 }
-#news .news-list .news-item p {
-  font-size: 16px;
-  margin-bottom: 20px;
+#news .news-list .news-item .main img {
+  width: 90%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
 }
-#news .news-list .news-item p.from {
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 0;
+#news .news-list .news-item .title {
+  margin-top: 12px;
+  font-size: 18px;
+}
+#news .news-list .news-item .title a {
+  text-decoration: none;
+}
+#news .news-list .news-item .from {
+  font-weight: bold;
 }
 /* =================↓ 环保视频 ↓================= */
 #video .video-list {

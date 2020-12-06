@@ -11,7 +11,6 @@ const API = {
     NEWS_API: {
         ALL: 'http://120.26.163.105/interface/selectNews',
 
-
         DELETE: 'http://120.26.163.105/interface/deleteNews'
     },
 

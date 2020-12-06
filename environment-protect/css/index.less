@@ -107,7 +107,7 @@
   // section中的标题
   .section-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 35px;
 
     h1 {
       font-family: 'Montserrat', sans-serif;
@@ -275,36 +275,73 @@
 /* =================↓ 环保新闻 ↓================= */
 #news {
   .news-list {
-    text-align: center;
-    position: relative;
-    z-index: 5;
-    overflow: hidden;
-
-    margin: 0 auto;
-    //background: pink;
+    padding: 0 4%;
 
     .news-item {
+      margin: 20px 0;
+      text-align: center;
 
-      .news-img-wrapper {
+      .main {
+        height: 290px;
+        margin: 0 10px;
+
         img {
-          border-radius: 50%;
-          margin-bottom: 20px;
+          width: 90%;
+          height: 100%;
+          border-radius: 12px;
+          object-fit: cover;
         }
       }
 
-      p {
-        font-size: 16px;
-        margin-bottom: 20px;
+      .title {
+        margin-top: 12px;
+        font-size: 18px;
 
-        // 新闻来源
-        &.from {
-          font-size: 14px;
-          font-weight: 700;
-          margin-bottom: 0;
+        a {
+          text-decoration: none;
         }
       }
+
+      .from {
+        font-weight: bold;
+      }
+
     }
   }
+
+  //.news-list {
+  //  text-align: center;
+  //  position: relative;
+  //  z-index: 5;
+  //  overflow: hidden;
+  //
+  //  background: #7CD552;
+  //
+  //  margin: 0 auto;
+  //  //background: pink;
+  //
+  //  .news-item {
+  //
+  //    .news-img-wrapper {
+  //      img {
+  //        width: 450px;
+  //        margin-bottom: 40px;
+  //      }
+  //    }
+  //
+  //    p {
+  //      font-size: 16px;
+  //      margin-bottom: 20px;
+  //
+  //      // 新闻来源
+  //      &.from {
+  //        font-size: 14px;
+  //        font-weight: 700;
+  //        margin-bottom: 0;
+  //      }
+  //    }
+  //  }
+  //}
 }
 
 

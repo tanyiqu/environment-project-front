@@ -11,6 +11,11 @@ $(function () {
     // 加载样式效果
     loadStyleEffect();
 
+    // 加载环保新闻
+    (async function () {
+        await loadNews();
+    })();
+
     // 加载环保视频
     (async function () {
         await loadVideo();
@@ -29,6 +34,25 @@ $(function () {
     // 加载事件
     loadEvents();
 });
+
+// 加载环保新闻
+async function loadNews() {
+    let url = API.NEWS_API.ALL;
+    let data = await get(url, {
+        type: 'r',
+        length: 3
+    });
+    data = data.data;
+    let covers = $('.news-item img');
+    let titles = $('.news-item a');
+    let froms = $('.news-item .from');
+    for (let i = 0; i < 3; i++) {
+        $(covers[i]).attr('src', data[i]['newsFace']);
+        $(titles[i]).attr('href', data[i]['newsUrl']);
+        $(titles[i]).text(data[i]['newsName']);
+        $(froms[i]).text(data[i]['newsFrom']);
+    }
+}
 
 
 // 加载环保视频
@@ -193,6 +217,14 @@ async function loadKnowledge() {
 
 // 加载事件
 function loadEvents() {
+    // 刷新新闻
+    $('#refresh-news').click(() => {
+        (async function () {
+            await loadNews();
+        })();
+    });
+
+
     // 刷新视频
     $('#refresh-video').click(() => {
         (async function () {
@@ -255,17 +287,6 @@ function loadStyleEffect() {
     // noinspection JSUnresolvedFunction
     wow.init();
 
-
-    // 新闻的 幻灯片效果
-    // noinspection JSUnresolvedFunction
-    $("#news-list").owlCarousel({
-        items: 1,
-        itemsDesktop: [1199, 1],
-        itemsDesktopSmall: [979, 1],
-        itemsTablet: [768, 1],
-        itemsMobile: [520, 1],
-        autoPlay: 5000
-    });
 
     // 视差效果
     // noinspection JSUnresolvedFunction
