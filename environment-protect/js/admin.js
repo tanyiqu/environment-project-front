@@ -283,7 +283,8 @@ let festivalTable = {
                 "holidayReason": "正在获取...",
             }],
             inputName: '',
-            inputUrl: ''
+            inputDate: '',
+            inputDesc: '',
         }
     },
     created() {
@@ -337,7 +338,55 @@ let festivalTable = {
                     message: '操作取消'
                 });
             }
+        },
+
+        addFestival() {
+            let that = this;
+            let name = that.inputName;
+            let date = that.inputDate;
+            let desc = that.inputDesc;
+            if (name.trim() === '' || date.trim() === '' || desc.trim() === '') {
+                // noinspection JSUnresolvedFunction
+                this.$message({
+                    showClose: true,
+                    message: `请输入`
+                });
+            } else {
+                post(API.FESTIVAL_API.ADD, {
+                    holidayName: name,
+                    holidayDate: date,
+                    holidayReason: desc,
+                }).then(e => {
+                    if (e.status === 200) {
+                        // noinspection JSUnresolvedFunction
+                        that.$message({
+                            type: 'success',
+                            showClose: true,
+                            message: '添加成功'
+                        });
+                        that.refresh();
+                        that.inputName = '';
+                        that.inputUrl = '';
+                    } else {
+                        // noinspection JSUnresolvedFunction
+                        that.$message({
+                            type: 'error',
+                            showClose: true,
+                            message: '添加失败：服务器异常'
+                        });
+                    }
+                }).catch(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedFunction
+                    that.$message({
+                        type: 'error',
+                        showClose: true,
+                        message: '添加失败：服务器异常'
+                    });
+                });
+            }
         }
+
     }
 };
 // noinspection JSUnresolvedVariable

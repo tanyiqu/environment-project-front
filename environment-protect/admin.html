@@ -264,6 +264,20 @@
 
             </el-table>
 
+            <!-- 添加 -->
+            <div class="add-div">
+                <div class="input-div">
+                    <el-input class="el-input" v-model="inputName" placeholder="请输入名称"></el-input>
+                    <el-input class="el-input" v-model="inputDate" placeholder="请输入时间"></el-input>
+                    <el-input class="el-input" v-model="inputDesc" placeholder="请输入介绍，换行请使用“<br>”代替"></el-input>
+                </div>
+
+                <el-button class="btn-add" type="primary" @click="addFestival">
+                    添加知识
+                </el-button>
+
+            </div>
+
             <!-- 分页 -->
             <el-pagination class="pagination"
                            background
