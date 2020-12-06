@@ -31,10 +31,13 @@ let newsTable = {
                 "newsName": "正在获取...",
                 "newsFrom": "正在获取...",
                 "newsUrl": "正在获取...",
-                "newsFace": "正在获取..."
+                "newsFace": "正在获取...",
+
             }],
             inputName: '',
-            inputUrl: ''
+            inputFrom: '',
+            inputUrl: '',
+            inputCoverUrl: '',
         }
     },
     created() {
@@ -97,6 +100,54 @@ let newsTable = {
             }
         },
         addNews() {
+            let that = this;
+            let name = that.inputName;
+            let from = that.inputFrom;
+            let url = that.inputUrl;
+            let coverUrl = that.inputCoverUrl;
+            if (name.trim() === '' || url.trim() === '' || from.trim() === '' || coverUrl.trim() === '') {
+                // noinspection JSUnresolvedFunction
+                this.$message({
+                    showClose: true,
+                    message: `请输入`
+                });
+            } else {
+                post(API.NEWS_API.ADD, {
+                    newsName: name,
+                    newsFrom: from,
+                    newsUrl: url,
+                    newsFace: coverUrl
+                }).then(e => {
+                    if (e.status === 200) {
+                        // noinspection JSUnresolvedFunction
+                        that.$message({
+                            type: 'success',
+                            showClose: true,
+                            message: '添加成功'
+                        });
+                        that.refresh();
+                        that.inputName = '';
+                        that.inputFrom = '';
+                        that.inputUrl = '';
+                        that.inputCoverUrl = '';
+                    } else {
+                        // noinspection JSUnresolvedFunction
+                        that.$message({
+                            type: 'error',
+                            showClose: true,
+                            message: '添加失败：服务器异常'
+                        });
+                    }
+                }).catch(e => {
+                    console.log(e);
+                    // noinspection JSUnresolvedFunction
+                    that.$message({
+                        type: 'error',
+                        showClose: true,
+                        message: '添加失败：服务器异常'
+                    });
+                });
+            }
         }
     }
 };
