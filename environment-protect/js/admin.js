@@ -366,7 +366,8 @@ let festivalTable = {
                         });
                         that.refresh();
                         that.inputName = '';
-                        that.inputUrl = '';
+                        that.inputDate = '';
+                        that.inputDesc = '';
                     } else {
                         // noinspection JSUnresolvedFunction
                         that.$message({
