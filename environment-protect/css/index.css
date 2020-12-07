@@ -304,9 +304,14 @@ body ul {
   -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
-#dynamic .dynamic-list .dynamic-item p {
-  margin-bottom: 0;
-  text-align: center;
+#dynamic .dynamic-list .dynamic-item h3 a {
+  text-decoration: none;
+  color: #858585;
+  font-weight: bold;
+}
+#dynamic .dynamic-list .dynamic-item h3 a:hover {
+  color: #858585;
+  font-weight: bold;
 }
 /* =================↓ 环保新闻 ↓================= */
 #news .news-list {
