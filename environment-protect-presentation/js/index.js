@@ -35,7 +35,7 @@ async function loadNews() {
     let data = [{
         "newsId": 24,
         "newsName": "成都环保设施“云开放”探秘下沉式污水处理厂",
-        "newsFace": "../images/news-cover/01.jpg",
+        "newsFace": "https://web-design-hncj.gitee.io/web-design-front/environment-protect-presentation/images/news-cover/01.jpg",
         "newsDate": null,
         "newsFrom": "北极星水处理网",
         "newsUrl": "http://www.chinaenvironment.com/scyw/index_68_112555.html",
@@ -43,7 +43,7 @@ async function loadNews() {
     }, {
         "newsId": 23,
         "newsName": "合肥近万处垃圾投放点“大瘦身” 垃圾分类后将更多“变废为宝”",
-        "newsFace": "../images/news-cover/02.jpg",
+        "newsFace": "https://web-design-hncj.gitee.io/web-design-front/environment-protect-presentation/images/news-cover/02.jpg",
         "newsDate": null,
         "newsFrom": "北极星固废网",
         "newsUrl": "http://www.chinaenvironment.com/scyw/index_67_112556.html",
@@ -51,10 +51,10 @@ async function loadNews() {
     }, {
         "newsId": 19,
         "newsName": "新疆生态补水助沙漠边缘重现候鸟“天堂”",
-        "newsFace": "../images/news-cover/03.jpg",
+        "newsFace": "https://web-design-hncj.gitee.io/web-design-front/environment-protect-presentation/images/news-cover/03.jpg",
         "newsDate": null,
         "newsFrom": "中国发展门户网",
-        "newsUrl": "\t http://www.chinaenvironment.com/zxxwlb/index_55_112215.html",
+        "newsUrl": "http://www.chinaenvironment.com/zxxwlb/index_55_112215.html",
         "newsAgencyUrl": null
     }];
     let covers = $('.news-item img');
